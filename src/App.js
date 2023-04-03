@@ -11,7 +11,7 @@ function App() {
   return (
       <>
       <header>
-        <Navbar expand="lg" variant="light" bg="light">
+        <Navbar expand="lg" variant="dark" bg="dark">
           <Container>
             <Navbar.Brand >HRnet</Navbar.Brand>
             <Nav className="mr-auto" variant="pills" defaultActiveKey="/home">
