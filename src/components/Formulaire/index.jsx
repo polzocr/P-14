@@ -6,6 +6,7 @@ import Form from 'react-bootstrap/Form';
 import { useState } from 'react';
 import { saving } from '../../features/employees';
 import {useDispatch} from 'react-redux'
+import MyModal from '../MyModal';
 
 export default function Formulaire(){
 
@@ -21,6 +22,7 @@ export default function Formulaire(){
         department: 'Sales'
     })
 
+    const [modalShow, setModalShow] = useState(false);
     const dispatch = useDispatch()
 
 
@@ -37,8 +39,8 @@ export default function Formulaire(){
     
     function handleSubmit(e){
         e.preventDefault()
-        console.log(formData)
         dispatch(saving(formData))
+        setModalShow(true)
 
     }
 
@@ -48,20 +50,20 @@ export default function Formulaire(){
                 <Row>
                     <Col md='6'>
                         <Form.Group className="mb-3" controlId="prenom">
-                            <Form.Control type="text" placeholder="Prénom" onChange={handleChange} name='firstName'/>
+                            <Form.Control type="text" placeholder="Prénom*" onChange={handleChange} name='firstName' required/>
                         </Form.Group>
                     </Col>
                     <Col md='6'>
                         <Form.Group className="mb-3" controlId="nom">
-                            <Form.Control type="text" placeholder="Nom" onChange={handleChange} name='lastName' />
+                            <Form.Control type="text" placeholder="Nom*" onChange={handleChange} name='lastName' required />
                         </Form.Group>
                     </Col>
                 </Row>
                 <Row>
                     <Col md='6'>
                         <Form.Group className="mb-3" controlId="date_de_naissance">
-                            <Form.Label>Date de naissance</Form.Label>
-                            <Form.Control type="date" onChange={handleChange} name='birth_date' />
+                            <Form.Label>Date de naissance*</Form.Label>
+                            <Form.Control type="date" onChange={handleChange} name='birth_date' required />
                         </Form.Group>
                     </Col>
                     <Col md='6'>
@@ -114,8 +116,11 @@ export default function Formulaire(){
                         Sauvegarder
                     </Button>
                 </Container>
-
             </Form>
+            <MyModal
+                show={modalShow}
+                onHide={() => setModalShow(false)}
+            />
         </section>
     )
 }
