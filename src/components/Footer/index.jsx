@@ -13,58 +13,32 @@ export default function Footer() {
         <footer className="border-top ">
             <Container className='py-5'>
                 <Row className='gy-4 align-items-center'>
-                    <Col className="col-12 col-md-4">
+                    <Col md={4} className='text-center text-md-start'>
                         <Navbar.Brand href="#root" className='text-dark text-uppercase fw-bold'>
                             <span className="bg-primary bg-gradient p-1 rounded-3 text-light">HR</span> net
                         </Navbar.Brand>
                     </Col>
-                    <Col col-12 col-md-4 text-md-center>
-                        <ListGroup variant="flush" as="ul" className='list-unstyled mb-0' >
-                            <ListGroup.Item as='li'>
+                    <Col md={4}>
+                        <ListGroup variant="flush" as="ul" >
+                            <ListGroup.Item as='li' className='text-center'>
                                 <Button variant="link" href='#' className='text-decoration-none text-dark'>Mentions Legales</Button>
                             </ListGroup.Item>
                         </ListGroup>
                     </Col>
-                    <Col className="col-12 col-md-4 text-md-end">
-                        <ListGroup horizontal as="ul" className='d-flex' >
-                            <ListGroup.Item as='li' className='border-0'>
+                    <Col md={4}>
+                        <ListGroup horizontal as="ul" className='justify-content-center justify-content-md-end' >
+                            <ListGroup.Item as='li' className='border-0 p-0'>
                                 <Button variant="link" href='#' className='text-decoration-none' title='LinkdIn'><i className="fab fa-linkedin fa-2x"></i></Button>
                             </ListGroup.Item>
-                            <ListGroup.Item as='li' className='border-0'>
+                            <ListGroup.Item as='li' className='border-0 p-0'>
                                 <Button variant="link" href='#' className='text-decoration-none' title='Instagram'><i className="fab fa-instagram-square fa-2x"></i></Button>
                             </ListGroup.Item>
-                            <ListGroup.Item as='li' className='border-0'>
+                            <ListGroup.Item as='li' className='border-0 p-0'>
                                 <Button variant="link" href='#' className='text-decoration-none' title='Twitter'><i className="fab fa-twitter-square fa-2x"></i></Button>
                             </ListGroup.Item>
                         </ListGroup>
                     </Col>
                 </Row>
-
-
-
-                {/* <div className="row gy-4 align-items-center">
-                    
-                    
-                    <div className="col-12 col-md-4 text-md-end">
-                        <ul className="list-inline mb-0">
-                            <li className="list-inline-item">
-                                <a href="#" className="text-decoration-none" title="LinkedIn" >
-                                    <i className="fab fa-linkedin fa-2x"></i>
-                                </a>
-                            </li>
-                            <li className="list-inline-item">
-                                <a href="#" className="text-decoration-none" title="Instagram">
-                                    <i className="fab fa-instagram-square fa-2x"></i>
-                                </a>
-                            </li>
-                            <li className="list-inline-item">
-                                <a href="#" className="text-decoration-none" title="Twitter">
-                                    <i className="fab fa-twitter-square fa-2x"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div> */}
             </Container>
         </footer>
     )
