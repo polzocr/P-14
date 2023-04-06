@@ -52,7 +52,7 @@ export default function Formulaire(){
                 </Row>
                 <Row>
                     <Col md='6'>
-                        <Form.Select aria-label="Choisir Etat">
+                        <Form.Select aria-label="Choisir Etat" className="mb-3">
                             <option>Alabama</option>
                             <option value="1">Un</option>
                             <option value="2">Deux</option>
