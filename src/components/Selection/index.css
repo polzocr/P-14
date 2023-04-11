@@ -16,3 +16,16 @@
     transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
     appearance: none;
 }
+
+select {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    word-wrap: normal;
+    text-transform: none;
+}
+
+select:not(:-internal-list-box) {
+    overflow: visible !important;
+}
