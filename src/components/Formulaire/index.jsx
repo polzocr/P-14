@@ -7,6 +7,9 @@ import { useState } from 'react';
 import { saving } from '../../features/employees';
 import {useDispatch} from 'react-redux'
 import MyModal from '../MyModal';
+import Selection from '../Selection';
+import {departments} from '../../data/departments'
+import { states } from '../../data/states';
 
 export default function Formulaire(){
 
@@ -41,6 +44,7 @@ export default function Formulaire(){
         e.preventDefault()
         dispatch(saving(formData))
         setModalShow(true)
+        console.log(formData)
 
     }
 
@@ -87,12 +91,9 @@ export default function Formulaire(){
                 </Row>
                 <Row>
                     <Col md='6'>
-                        <Form.Select aria-label="Choisir Etat" className="mb-3" onChange={handleChange} name='state'>
-                            <option>Alabama</option>
-                            <option value="1">Un</option>
-                            <option value="2">Deux</option>
-                            <option value="3">Trois</option>
-                        </Form.Select>
+                        <Form.Group className="mb-3" controlId="department" >
+                            <Selection elements={departments} title='Département' name='department' handleChange={handleChange} />
+                        </Form.Group>
                     </Col>
                     <Col md='6'>
                         <Form.Group className="mb-3" controlId="code_postal" >
@@ -102,12 +103,9 @@ export default function Formulaire(){
                 </Row>
                 <Row>
                     <Col>
-                        <Form.Select aria-label="Choisir Etat" onChange={handleChange} name='department'>
-                            <option>Département</option>
-                            <option value="1">Un</option>
-                            <option value="2">Deux</option>
-                            <option value="3">Trois</option>
-                        </Form.Select>
+                        <Form.Group className="mb-3" controlId="state" >
+                            <Selection elements={states} title='Etats' name='state' handleChange={handleChange} />
+                        </Form.Group>
                     </Col>
                 </Row>
 
