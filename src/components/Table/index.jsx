@@ -2,13 +2,14 @@ import BootstrapTable from 'react-bootstrap-table-next'
 import { useSelector } from 'react-redux'
 import paginationFactory from 'react-bootstrap-table2-paginator'
 import ToolkitProvider, { Search } from 'react-bootstrap-table2-toolkit/dist/react-bootstrap-table2-toolkit'
+import {selectEmployees} from '../../utils/Redux/selectors'
 
 
 export default function Table(){
 
     const { SearchBar } = Search;
-    const employees = useSelector((state) => state.employees)
-
+    const employees = useSelector(selectEmployees)
+    
     function dateFormatter(data){
         return <>
             {data.split('-').reverse().join('/')}
@@ -105,7 +106,7 @@ export default function Table(){
                             <SearchBar {...props.searchProps} placeholder="Recherche" />
                             <hr />
                             <BootstrapTable
-                                keyField='firstName'
+                                keyField='id'
                                 data={employees}
                                 columns={columns}
                                 striped
