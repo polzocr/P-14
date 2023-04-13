@@ -10,6 +10,7 @@ import MyModal from '../MyModal';
 import Selection from '../Selection';
 import {departments} from '../../data/departments'
 import { states } from '../../data/states';
+import { saveStorageEmployee } from '../../services/storage'
 
 export default function Formulaire(){
 
@@ -25,6 +26,7 @@ export default function Formulaire(){
         department: 'Sales'
     })
 
+    const [validated, setValidated] = useState(false);
     const [modalShow, setModalShow] = useState(false);
     const dispatch = useDispatch()
 
@@ -42,24 +44,34 @@ export default function Formulaire(){
     
     function handleSubmit(e){
         e.preventDefault()
-        dispatch(saving(formData))
-        setModalShow(true)
-        console.log(formData)
-
+        const form = e.currentTarget
+        if (form.checkValidity() === true) {
+            dispatch(saving(formData))
+            setModalShow(true)
+            saveStorageEmployee(formData)
+        } 
+        setValidated(true)
+        // console.log(formData)
     }
 
     return (
         <section id='formulaire'>
-            <Form className='mt-4' onSubmit={handleSubmit}>
+            <Form className='mt-4' noValidate validated={validated} onSubmit={handleSubmit}>
                 <Row>
                     <Col md='6'>
                         <Form.Group className="mb-3" controlId="prenom">
                             <Form.Control type="text" placeholder="Prénom*" onChange={handleChange} name='firstName' required/>
+                            <Form.Control.Feedback type="invalid">
+                                Choisissez un Prénom.
+                            </Form.Control.Feedback>
                         </Form.Group>
                     </Col>
                     <Col md='6'>
                         <Form.Group className="mb-3" controlId="nom">
                             <Form.Control type="text" placeholder="Nom*" onChange={handleChange} name='lastName' required />
+                            <Form.Control.Feedback type="invalid">
+                                Choisissez un Nom.
+                            </Form.Control.Feedback>
                         </Form.Group>
                     </Col>
                 </Row>
@@ -68,6 +80,9 @@ export default function Formulaire(){
                         <Form.Group className="mb-3" controlId="date_de_naissance">
                             <Form.Label>Date de naissance*</Form.Label>
                             <Form.Control type="date" onChange={handleChange} name='birth_date' required />
+                            <Form.Control.Feedback type="invalid">
+                                Choisissez une date de naissance.
+                            </Form.Control.Feedback>
                         </Form.Group>
                     </Col>
                     <Col md='6'>
@@ -92,7 +107,7 @@ export default function Formulaire(){
                 <Row>
                     <Col md='6'>
                         <Form.Group className="mb-3" controlId="department" >
-                            <Selection elements={departments} title='Département' name='department' handleChange={handleChange} />
+                            <Selection elements={departments} title='Département' name='department' onChange={handleChange} />
                         </Form.Group>
                     </Col>
                     <Col md='6'>
@@ -104,7 +119,7 @@ export default function Formulaire(){
                 <Row>
                     <Col>
                         <Form.Group className="mb-3" controlId="state" >
-                            <Selection elements={states} title='Etats' name='state' handleChange={handleChange} />
+                            <Selection elements={states} title='Etats' name='state' onChange={handleChange} />
                         </Form.Group>
                     </Col>
                 </Row>
