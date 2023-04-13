@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux'
 import paginationFactory from 'react-bootstrap-table2-paginator'
 // import ToolkitProvider, { Search } from 'react-bootstrap-table2-toolkit';
 
+
 export default function Table(){
 
     // const { SearchBar } = Search;
@@ -28,18 +29,18 @@ export default function Table(){
         },
         {
             dataField: 'starter_date',
-            text: 'Date début',
+            text: 'Début',
             sort: true,
             formatter : dateFormatter
         },
         {
             dataField: 'department',
-            text: 'Département',
+            text: 'Fonction',
             sort: true,
         },
         {
             dataField: 'birth_date',
-            text: 'Date de naissance',
+            text: 'Age',
             sort: true,
             formatter: dateFormatter
         },
@@ -60,13 +61,39 @@ export default function Table(){
         },
         {
             dataField: 'zip_code',
-            text: 'Code postal',
+            text: 'Zip',
             sort: true,
         },
     ]
 
+    const options = {
+        paginationSize: 4,
+        pageStartIndex: 1,
+        alwaysShowAllBtns: true, 
+        withFirstAndLast: false, 
+        // hideSizePerPage: true, 
+        hidePageListOnlyOnePage: true, 
+        firstPageText: 'Premiere',
+        prePageText: 'Précedente',
+        nextPageText: 'Suivant',
+        lastPageText: 'Derniere',
+        nextPageTitle: 'Premiere',
+        prePageTitle: 'Pre page',
+        firstPageTitle: 'Page Suivante',
+        lastPageTitle: 'Derniere Page',
+        showTotal: false,
+        disablePageTitle: true,
+        sizePerPageList: [{
+            text: '5', value: 5
+        }, {
+            text: '10', value: 10
+        }, {
+            text: 'Tout', value: employees.length
+        }] 
+    };
+
     return (
-        <div>
+        <section className='mt-4'>
             {/* <ToolkitProvider
                 keyField="id"
                 data={employees}
@@ -94,8 +121,8 @@ export default function Table(){
                 striped
                 hover
                 condensed
-                pagination={paginationFactory()}
+                pagination={paginationFactory(options)}
             />
-        </div>
+        </section>
     )
 }
