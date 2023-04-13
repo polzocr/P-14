@@ -1,14 +1,13 @@
 import BootstrapTable from 'react-bootstrap-table-next'
 import { useSelector } from 'react-redux'
 import paginationFactory from 'react-bootstrap-table2-paginator'
-// import ToolkitProvider, { Search } from 'react-bootstrap-table2-toolkit';
+import ToolkitProvider, { Search } from 'react-bootstrap-table2-toolkit/dist/react-bootstrap-table2-toolkit'
 
 
 export default function Table(){
 
-    // const { SearchBar } = Search;
+    const { SearchBar } = Search;
     const employees = useSelector((state) => state.employees)
-    //employees.forEach((obj, index) => obj.id = index)
 
     function dateFormatter(data, row){
         return <>
@@ -94,7 +93,7 @@ export default function Table(){
 
     return (
         <section className='mt-4'>
-            {/* <ToolkitProvider
+            <ToolkitProvider
                 keyField="id"
                 data={employees}
                 columns={columns}
@@ -103,26 +102,22 @@ export default function Table(){
                 {
                     props => (
                         <div>
-                            <h3>Input something at below input field:</h3>
-                            <SearchBar />
+                            <SearchBar {...props.searchProps} placeholder="Recherche" />
                             <hr />
                             <BootstrapTable
+                                keyField='firstName'
+                                data={employees}
+                                columns={columns}
+                                striped
+                                hover
+                                condensed
+                                pagination={paginationFactory(options)}
                                 {...props.baseProps}
                             />
                         </div>
                     )
                 }
-            </ToolkitProvider> */}
-
-            <BootstrapTable 
-                keyField='firstName'
-                data={employees}
-                columns={columns}
-                striped
-                hover
-                condensed
-                pagination={paginationFactory(options)}
-            />
+            </ToolkitProvider>
         </section>
     )
 }
