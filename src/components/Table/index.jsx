@@ -9,9 +9,9 @@ export default function Table(){
     const { SearchBar } = Search;
     const employees = useSelector((state) => state.employees)
 
-    function dateFormatter(data, row){
+    function dateFormatter(data){
         return <>
-
+            {data.split('-').reverse().join('/')}
         </>
     }
 
