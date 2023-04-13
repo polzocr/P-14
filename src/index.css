@@ -16,5 +16,12 @@ code {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+}
+
+main{
+  flex: 1 0 auto;
+}
+
+footer {
+  flex-shrink: 0;
 }
