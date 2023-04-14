@@ -17,7 +17,7 @@
     appearance: none;
 }
 
-select {
+.select-plug {
     margin: 0;
     font-family: inherit;
     font-size: inherit;
@@ -26,6 +26,11 @@ select {
     text-transform: none;
 }
 
-select:not(:-internal-list-box) {
-    overflow: visible !important;
+.select-plug:focus {
+    color: #212529;
+    background-color: #fff;
+    border-color: #86b7fe;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
 }
+
