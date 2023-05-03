@@ -8,6 +8,7 @@ Object {
       <select
         aria-label="selected_number"
         class="select-plug"
+        data-testid="test-select"
         name="selected_number"
       >
         <option>
@@ -35,6 +36,7 @@ Object {
     <select
       aria-label="selected_number"
       class="select-plug"
+      data-testid="test-select"
       name="selected_number"
     >
       <option>
