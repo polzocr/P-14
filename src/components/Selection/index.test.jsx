@@ -19,15 +19,17 @@ describe('testing Selection component', () => {
     expect(Render).toMatchSnapshot();
   });
   it('should trigger the function', async () => {
-    const arrayElements = [1, 2, 3];
-    const mockChange = jest.fn();
-    render(<Selection elements={arrayElements} onChange={mockChange} />);
+    const arrayElements = [1, 2, 3]
+    const mockChange = jest.fn((x) => console.log(x.target.value));
+    render(<Selection elements={arrayElements} onChange={mockChange} />)
 
-    const selectComp = screen.getByTestId('test-select');
-    const optionChoosed = screen.getByText('1');
+    const selectComp = screen.getByTestId('test-select')
+    const optionChoosed = screen.getByText('2')
 
-    fireEvent.change(selectComp, { target: { value: '1' } });
-    expect(optionChoosed.selected).toBe(true);
+    fireEvent.change(selectComp, { target: { value: '2' } });
+    expect(optionChoosed.selected).toBe(true)
     expect(mockChange).toHaveBeenCalledTimes(1);
+    expect(mockChange.mock.calls[0][0].target.value).toBe('2')
   });
 });
+
