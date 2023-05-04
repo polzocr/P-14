@@ -1,7 +1,7 @@
 export const departments = [
-    "Sales",
-    "Marketing",
-    "Engineering",
-    "Human Resources",
-    "Legal",
-]
+  'Sales',
+  'Marketing',
+  'Engineering',
+  'Human Resources',
+  'Legal',
+];
