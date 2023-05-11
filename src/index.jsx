@@ -10,7 +10,7 @@ import 'react-bootstrap-table-next/dist/react-bootstrap-table2.min.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <Provider store={store}>
-    <Router />
-  </Provider>,
+	<Provider store={store}>
+		<Router />
+  	</Provider>,
 );

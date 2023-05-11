@@ -9,7 +9,7 @@ import {useDispatch} from 'react-redux'
 import MyModal from '../MyModal';
 import Selection from '../Selection';
 import {departments} from '../../data/departments'
-import { states } from '../../data/states';
+import {states} from '../../data/states';
 import { saveStorageEmployee } from '../../services/storage'
 
 export default function Formulaire(){
