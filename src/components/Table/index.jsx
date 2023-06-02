@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux'
 import paginationFactory from 'react-bootstrap-table2-paginator'
 import ToolkitProvider, { Search } from 'react-bootstrap-table2-toolkit/dist/react-bootstrap-table2-toolkit'
 import {selectEmployees} from '../../utils/Redux/selectors'
+import React from 'react';
 
 
 export default function Table(){

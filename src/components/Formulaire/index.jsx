@@ -7,10 +7,11 @@ import { useState } from 'react';
 import { saving } from '../../features/employees';
 import {useDispatch} from 'react-redux'
 import MyModal from '../MyModal';
-// import Selection from "@polzocr/react-selectator"
+import Selection from "@polzocr/react-selectator"
 import {departments} from '../../data/departments'
 import {states} from '../../data/states';
 import { saveStorageEmployee } from '../../services/storage'
+import React from 'react';
 
 export default function Formulaire(){
 
@@ -43,6 +44,7 @@ export default function Formulaire(){
 
     
     function handleSubmit(e){
+        
         e.preventDefault()
         const form = e.currentTarget
         if (form.checkValidity() === true) {
@@ -53,7 +55,7 @@ export default function Formulaire(){
         setValidated(true)
         // console.log(formData)
     }
-
+    
     return (
         <section id='formulaire'>
             <Form className='mt-4' noValidate validated={validated} onSubmit={handleSubmit}>
@@ -107,7 +109,7 @@ export default function Formulaire(){
                 <Row>
                     <Col md='6'>
                         <Form.Group className="mb-3" controlId="department" >
-                            {/* <Selection elements={states} title='Etats' name='state' onChange={handleChange} /> */}
+                            <Selection elements={states} title='Etats' name='state' onChange={handleChange} />
                         </Form.Group>
                     </Col>
                     <Col md='6'>
@@ -119,7 +121,7 @@ export default function Formulaire(){
                 <Row>
                     <Col>
                         <Form.Group className="mb-3" controlId="state" >
-                            {/* <Selection elements={departments} title='Département' name='department' onChange={handleChange} /> */}
+                            <Selection elements={departments} title='Département' name='department' onChange={handleChange} />
                         </Form.Group>
                     </Col>
                 </Row>

@@ -1,6 +1,7 @@
 import Container from 'react-bootstrap/Container';
 import Banner from '../../components/Banner';
 import Table from '../../components/Table';
+import React from 'react';
 
 export default function Employee() {
     return (

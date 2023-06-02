@@ -1,4 +1,5 @@
 import logo from '../../assets/images/wealth_health.jpg'
+import React from 'react';
 
 
 export default function Banner(){

@@ -1,6 +1,7 @@
 import Container from 'react-bootstrap/Container';
 import Formulaire from '../../components/Formulaire';
 import Banner from '../../components/Banner';
+import React from 'react';
 
 export default function Home(){
     return (

@@ -3,6 +3,7 @@ import Layout from '../pages/Layout'
 import Home from '../pages/Home'
 import Employee from '../pages/Employee'
 import ErrorPage from '../pages/ErrorPage'
+import React from 'react';
 
 const router = createBrowserRouter(
     createRoutesFromElements(
