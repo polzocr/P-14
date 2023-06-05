@@ -1,4 +1,4 @@
-export const states = [
+export default [
 	'Alabama',
 	'Alaska',
 	'American Samoa',
@@ -58,4 +58,4 @@ export const states = [
 	'West Virginia',
 	'Wisconsin',
 	'Wyoming',
-];
+]

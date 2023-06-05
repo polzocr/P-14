@@ -1,9 +1,9 @@
 export function getStorageEmployees() {
-	return JSON.parse(localStorage.getItem('employees')) || [];
+	return JSON.parse(localStorage.getItem('employees')) || []
 }
 
 export function saveStorageEmployee(formData) {
-	const employees = getStorageEmployees();
+	const employees = getStorageEmployees()
 	const employee = {
 		firstName: formData.firstName,
 		lastName: formData.lastName,
@@ -14,7 +14,7 @@ export function saveStorageEmployee(formData) {
 		city: formData.city,
 		state: formData.state,
 		zip_code: formData.zip_code,
-	};
-	employees.push(employee);
-	localStorage.setItem('employees', JSON.stringify(employees));
+	}
+	employees.push(employee)
+	localStorage.setItem('employees', JSON.stringify(employees))
 }
