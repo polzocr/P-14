@@ -17,7 +17,6 @@ On Windows, these installations require to use PowerShell in administrator mode.
 
 ## Installation 
 
-- Go to this adress https://github.com/polzocr/P-14.git
 - Clone this repository `git clone https://github.com/polzocr/P-14.git `
 - `cd P-14`
 - Run `npm install --legacy-peer-deps `
